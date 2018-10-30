@@ -21,6 +21,7 @@ export class ChatServer {
 
   private createApp(): void {
     this.app = express();
+    this.app.use(express.static('./public'));
   }
 
   private createServer(): void {
