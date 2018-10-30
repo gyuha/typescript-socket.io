@@ -1,0 +1,28 @@
+{
+  "name": "playpot-chat",
+  "version": "1.0.0",
+  "description": "PlayPot realtime socket.io application..",
+  "main": "dist/index.js",
+  "author": "playpot",
+  "license": "MIT",
+  "scripts": {
+    "start": "concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \"yarn run watch-ts\" \"yarn run watch-node\"",
+    "watch-node": "nodemon dist/index.js",
+    "build": "tsc",
+    "watch-ts": "tsc -w",
+    "test": "mocha -r ts-node/register src/**/*.spec.ts"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.5",
+    "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/socket.io": "^1.4.38",
+    "concurrently": "^4.0.1",
+    "ts-loader": "^5.2.2",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.4"
+  }
+}
