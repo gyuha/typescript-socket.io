@@ -16,6 +16,7 @@ function enterMessage() {
 
 function changeChannel() {
   $('#messages').html('');
+  connectRoom();
 }
 
 $(function() {
