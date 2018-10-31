@@ -17,12 +17,11 @@ function connectRoom() {
   });
 
   socket.on('message', function(msg) {
-    console.log(msg);
-    setMessage(msg.message);
+    setMessage(msg.name, msg.message);
   });
 }
 
-function sendMessage(message) {
-  setMessage(message);
-  socket.emit('message', { message: message });
+function sendMessage(name, message) {
+  setMessage(name, message);
+  socket.emit('message', { name, message });
 }

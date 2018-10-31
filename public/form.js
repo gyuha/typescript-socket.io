@@ -1,16 +1,17 @@
 console.log('test');
 
-function setMessage(message) {
+function setMessage(name, message) {
   var template = $('#template').html();
   var compiled = _.template(template);
-  var html = compiled({ message: message });
+  var html = compiled({ name, message });
   $('#messages').append(html);
   $('#messages').animate({ scrollTop: $('#messages').prop('scrollHeight') }, 500);
 }
 
 function enterMessage() {
+  var name = $('#name').val();
   var message = $('#input').val();
-  sendMessage(message);
+  sendMessage(name, message);
   $('#input').val('');
 }
 

@@ -27,15 +27,24 @@
       </div>
       <div class="box chat-box" id="messages">
       </div>
-      <div class="field is-grouped">
-        <p class="control is-expanded">
-          <input class="input" type="text" placeholder="input" id="input">
-        </p>
-        <p class="control">
-          <a class="button is-info" onclick="enterMessage();">
-            Send
-          </a>
-        </p>
+      <div class="field is-horizontal">
+        <div class="is-normal">
+          <div class="control">
+            <input class="input is-primary" id="name" type="text" placeholder="Name" value="TESTER">
+          </div>
+        </div>
+        <div class="field-body">
+          <div class="field is-grouped">
+            <p class="control is-expanded">
+              <input class="input" type="text" placeholder="input" id="input">
+            </p>
+            <p class="control">
+              <a class="button is-info" onclick="enterMessage();">
+                Send
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -52,7 +61,7 @@
       <div class="media-content">
         <div class="content">
           <p>
-            <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+            <strong>{{ name }}</strong> <small>@socket</small>
             <br>
             {{ message }}
           </p>

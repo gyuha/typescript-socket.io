@@ -24,9 +24,9 @@ export class Chat {
 
       socket.join(ch);
       socket.on('message', (data: any) => {
-        console.log('TCL: Message -> data', data);
         _this.onMessage(socket, ch, data);
       });
+
       socket.on('disconnect', this.onDisconnect);
     });
   }
