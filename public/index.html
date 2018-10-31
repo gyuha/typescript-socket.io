@@ -15,9 +15,16 @@
       <h1 class="title">
         Chat
       </h1>
-      <p class="subtitle">
-        <input class="input" type="text" placeholder="channel" value="default" />
-      </p>
+      <div class="field is-grouped">
+        <p class="control is-expanded">
+          <input class="input" type="text" placeholder="input" id="channel" value="default">
+        </p>
+        <p class="control">
+          <a class="button is-primary" onclick="changeChannel();">
+            connect
+          </a>
+        </p>
+      </div>
       <div class="box chat-box" id="messages">
       </div>
       <div class="field is-grouped">

@@ -14,6 +14,10 @@ function enterMessage() {
   $('#input').val('');
 }
 
+function changeChannel() {
+  $('#messages').html('');
+}
+
 $(function() {
   _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 
@@ -21,6 +25,13 @@ $(function() {
     if (event.which == 13) {
       event.preventDefault();
       enterMessage();
+    }
+  });
+
+  $('#channel').keypress(function(event) {
+    if (event.which == 13) {
+      event.preventDefault();
+      changeChannel();
     }
   });
 });
