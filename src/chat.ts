@@ -12,13 +12,18 @@ export class Chat {
 
   private listen(): void {
     this.io.on('connect', (socket: any) => {
-      socket.on('message', this.onMessage);
+      socket.broadcast.emit('message', { message: 'hi' });
+      console.log('connenct');
+      var _this = this;
+      socket.on('message', (data: any) => {
+        _this.onMessage(socket, data);
+      });
       socket.on('disconnect', this.onDisconnect);
     });
   }
 
-  private onMessage(m: any) {
-    console.log('TCL: SocketIO -> privateonMessage -> m', m);
+  private onMessage(socket: any, data: any) {
+    socket.broadcast.emit('message', data);
   }
 
   private onDisconnect(m: any) {

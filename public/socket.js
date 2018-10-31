@@ -1,37 +1,11 @@
-console.log('test');
+var socket = io();
 
-function setMessage(message) {
-  var template = $('#template').html();
-  var compiled = _.template(template);
-  var message = compiled({ message: message });
-  $('#messages').append(message);
-  $('#messages').animate({ scrollTop: $('#messages').prop('scrollHeight') }, 500);
-}
-
-function enterMessage() {
-  var message = $('#input').val();
-  setMessage(message);
-  $('#input').val('');
-}
-
-function changeChannel() {
-  $('#messages').html('');
-}
-
-$(function() {
-  _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
-
-  $('#input').keypress(function(event) {
-    if (event.which == 13) {
-      event.preventDefault();
-      enterMessage();
-    }
-  });
-
-  $('#channel').keypress(function(event) {
-    if (event.which == 13) {
-      event.preventDefault();
-      changeChannel();
-    }
-  });
+socket.on('message', function(msg) {
+  console.log(msg);
+  setMessage(msg.message);
 });
+
+function sendMessage(message) {
+  setMessage(message);
+  socket.emit('message', { message: message });
+}
